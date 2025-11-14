@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: livercare-ai
+    env: node
+    buildCommand: |
+      npm install
+      python3 -m pip install --user joblib numpy scikit-learn scipy threadpoolctl || python -m pip install --user joblib numpy scikit-learn scipy threadpoolctl
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: NODE_ENV
+        value: production
+      - key: PYTHON_PATH
+        value: python3
+    healthCheckPath: /
+    plan: free
+
