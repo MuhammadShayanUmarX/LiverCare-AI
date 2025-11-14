@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - LiverCare AI</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LiverCare AI</h1>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Health Blog</h1>
+            <p>Latest articles about liver health, prevention, and wellness</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-filters">
+                <button class="filter-btn active" data-category="all">All Articles</button>
+                <button class="filter-btn" data-category="prevention">Prevention</button>
+                <button class="filter-btn" data-category="symptoms">Symptoms</button>
+                <button class="filter-btn" data-category="nutrition">Nutrition</button>
+                <button class="filter-btn" data-category="research">Research</button>
+            </div>
+
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LiverCare AI</h3>
+                    <p>Advanced liver disease detection using machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="chatbot.html">AI Chatbot</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developer</h4>
+                    <p>Crafted by <a href="developer.html" class="developer-link">Muhammad Shayan Umar</a> of XtarzLab.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
+                <p>Developed by XtarzLab</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript Modules -->
+    <script src="js/utils/animations.js"></script>
+    <script src="js/utils/scrollObserver.js"></script>
+    <script src="js/modules/navigation.js"></script>
+    <script src="js/modules/blog.js"></script>
+</body>
+</html>
+

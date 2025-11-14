@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LiverCare AI</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LiverCare AI</h1>
+                <p class="nav-tagline">Your Health Dashboard</p>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#" id="logoutBtn" class="logout-link">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Hero -->
+    <section class="dashboard-hero">
+        <div class="container">
+            <div class="dashboard-welcome">
+                <div class="welcome-content">
+                    <h1 id="welcomeMessage">Welcome back!</h1>
+                    <p>Monitor and manage your liver health with AI-powered insights</p>
+                </div>
+                <div class="user-avatar">
+                    <div class="avatar-circle">
+                        <span id="userInitials">U</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Main Content -->
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- Dashboard Stats -->
+            <div class="dashboard-stats-grid">
+                <div class="stat-card-professional">
+                    <div class="stat-icon-wrapper">
+                        <div class="stat-icon-bg stat-icon-blue">
+                            <span class="stat-icon">📊</span>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalDetections" class="stat-number">0</h3>
+                        <p class="stat-label">Total Detections</p>
+                        <span class="stat-trend">All time</span>
+                    </div>
+                </div>
+                <div class="stat-card-professional">
+                    <div class="stat-icon-wrapper">
+                        <div class="stat-icon-bg stat-icon-green">
+                            <span class="stat-icon">📈</span>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="avgRisk" class="stat-number">-</h3>
+                        <p class="stat-label">Average Risk</p>
+                        <span class="stat-trend">Based on history</span>
+                    </div>
+                </div>
+                <div class="stat-card-professional">
+                    <div class="stat-icon-wrapper">
+                        <div class="stat-icon-bg stat-icon-orange">
+                            <span class="stat-icon">📅</span>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="lastDetection" class="stat-number">-</h3>
+                        <p class="stat-label">Last Detection</p>
+                        <span class="stat-trend">Recent activity</span>
+                    </div>
+                </div>
+                <div class="stat-card-professional">
+                    <div class="stat-icon-wrapper">
+                        <div class="stat-icon-bg stat-icon-purple">
+                            <span class="stat-icon">🎯</span>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">97.9%</h3>
+                        <p class="stat-label">Model Accuracy</p>
+                        <span class="stat-trend">AI Performance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Tabs -->
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="detection">
+                    <span class="tab-icon">🔍</span>
+                    <span>Detection</span>
+                </button>
+                <button class="tab-btn" data-tab="chatbot">
+                    <span class="tab-icon">💬</span>
+                    <span>AI Assistant</span>
+                </button>
+                <button class="tab-btn" data-tab="history">
+                    <span class="tab-icon">📋</span>
+                    <span>History</span>
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="dashboard-tab-content">
+                <!-- Detection Tab -->
+                <div class="tab-panel active" id="detectionTab">
+                    <div class="dashboard-main-layout">
+                        <div class="dashboard-main-panel">
+                            <div class="panel-header-professional">
+                                <div class="panel-header-left">
+                                    <div class="panel-icon-large">🔍</div>
+                                    <div>
+                                        <h2>Liver Disease Detection</h2>
+                                        <p>Enter your health information for AI-powered risk assessment</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body-professional">
+                                <form id="dashboardDetectionForm" class="dashboard-detection-form">
+                                    <div class="form-section">
+                                        <h3 class="form-section-title">Personal Information</h3>
+                                        <div class="form-row-2">
+                                            <div class="form-group">
+                                                <label for="dashAge">Age <span class="required">*</span></label>
+                                                <input type="number" id="dashAge" name="age" min="1" max="120" required placeholder="Enter your age">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Gender <span class="required">*</span></label>
+                                                <div class="radio-group">
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="gender" value="0" required>
+                                                        <span>Female</span>
+                                                    </label>
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="gender" value="1" required>
+                                                        <span>Male</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <h3 class="form-section-title">Health Metrics</h3>
+                                        <div class="form-row-2">
+                                            <div class="form-group">
+                                                <label for="dashBMI">BMI (Body Mass Index) <span class="required">*</span></label>
+                                                <input type="number" id="dashBMI" name="bmi" step="0.1" min="10" max="50" required placeholder="e.g., 24.5">
+                                                <small>Normal range: 18.5 - 24.9</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dashAlcohol">Alcohol Consumption <span class="required">*</span></label>
+                                                <input type="number" id="dashAlcohol" name="alcohol" step="0.1" min="0" required placeholder="Units per week">
+                                            </div>
+                                        </div>
+                                        <div class="form-row-2">
+                                            <div class="form-group">
+                                                <label for="dashPhysicalActivity">Physical Activity <span class="required">*</span></label>
+                                                <input type="number" id="dashPhysicalActivity" name="physicalActivity" step="0.1" min="0" required placeholder="Hours per week">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dashLiverFunctionTest">Liver Function Test <span class="required">*</span></label>
+                                                <input type="number" id="dashLiverFunctionTest" name="liverFunctionTest" step="0.1" min="0" required placeholder="ALT/AST levels (IU/L)">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <h3 class="form-section-title">Lifestyle & Medical History</h3>
+                                        <div class="form-row-2">
+                                            <div class="form-group">
+                                                <label>Smoking Status <span class="required">*</span></label>
+                                                <div class="radio-group">
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="smoking" value="0" required>
+                                                        <span>No</span>
+                                                    </label>
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="smoking" value="1" required>
+                                                        <span>Yes</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Genetic Risk <span class="required">*</span></label>
+                                                <div class="radio-group">
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="geneticRisk" value="0" required>
+                                                        <span>No</span>
+                                                    </label>
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="geneticRisk" value="1" required>
+                                                        <span>Yes</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row-2">
+                                            <div class="form-group">
+                                                <label>Diabetes <span class="required">*</span></label>
+                                                <div class="radio-group">
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="diabetes" value="0" required>
+                                                        <span>No</span>
+                                                    </label>
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="diabetes" value="1" required>
+                                                        <span>Yes</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Hypertension <span class="required">*</span></label>
+                                                <div class="radio-group">
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="hypertension" value="0" required>
+                                                        <span>No</span>
+                                                    </label>
+                                                    <label class="radio-label">
+                                                        <input type="radio" name="hypertension" value="1" required>
+                                                        <span>Yes</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-large btn-block" id="dashboardSubmitBtn">
+                                        <span class="btn-text">🔍 Analyze Risk</span>
+                                        <span class="btn-loader">
+                                            <span class="loading-dots">
+                                                <span></span><span></span><span></span>
+                                            </span>
+                                        </span>
+                                    </button>
+                                </form>
+
+                                <!-- Detection Results -->
+                                <div id="dashboardResults" class="dashboard-results-professional" style="display: none;">
+                                    <div class="results-header">
+                                        <h3>Analysis Results</h3>
+                                        <button class="btn-close-results" onclick="document.getElementById('dashboardResults').style.display='none'">×</button>
+                                    </div>
+                                    <div class="results-body">
+                                        <div class="result-visual">
+                                            <div class="probability-display-large">
+                                                <div class="probability-circle-large" id="dashboardProbabilityCircle">
+                                                    <svg viewBox="0 0 140 140">
+                                                        <circle cx="70" cy="70" r="64" fill="none" stroke="#e0e0e0" stroke-width="10"/>
+                                                        <circle cx="70" cy="70" r="64" fill="none" stroke="#32CD32" stroke-width="10" 
+                                                                id="dashboardProbabilityArc" stroke-dasharray="402.12" stroke-dashoffset="402.12" 
+                                                                transform="rotate(-90 70 70)" stroke-linecap="round"/>
+                                                    </svg>
+                                                    <div class="probability-text-large">
+                                                        <span id="dashboardProbabilityValue">0</span>%
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="risk-assessment">
+                                                <div class="risk-badge-large" id="dashboardRiskBadge">Low Risk</div>
+                                                <p id="dashboardResultMessage" class="result-message"></p>
+                                            </div>
+                                        </div>
+                                        <div class="recommendations-panel">
+                                            <h4>💡 Recommendations</h4>
+                                            <ul id="dashboardRecommendations" class="recommendations-list"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chatbot Tab -->
+                <div class="tab-panel" id="chatbotTab">
+                    <div class="dashboard-main-layout">
+                        <div class="dashboard-main-panel">
+                            <div class="panel-header-professional">
+                                <div class="panel-header-left">
+                                    <div class="panel-icon-large">💬</div>
+                                    <div>
+                                        <h2>AI Chatbot Assistant</h2>
+                                        <p>Ask questions about liver health, symptoms, prevention, and more</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body-professional">
+                                <div class="dashboard-chatbot-container-professional">
+                                    <div class="dashboard-chatbot-messages-professional" id="dashboardChatMessages">
+                                        <div class="message bot-message">
+                                            <div class="message-avatar">🤖</div>
+                                            <div class="message-content">
+                                                <p>Hello! I'm your LiverCare AI assistant. How can I help you today?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-chatbot-input-professional">
+                                        <input type="text" id="dashboardChatInput" placeholder="Type your message here..." autocomplete="off">
+                                        <button id="dashboardSendBtn" class="btn-send-professional">
+                                            <span>Send</span>
+                                            <span class="send-icon">➤</span>
+                                        </button>
+                                    </div>
+                                    <div class="quick-questions-professional">
+                                        <p class="quick-questions-label">Quick questions:</p>
+                                        <div class="quick-buttons-grid">
+                                            <button class="quick-btn-professional" data-question="What are the symptoms of liver disease?">
+                                                <span>🔍</span> Symptoms
+                                            </button>
+                                            <button class="quick-btn-professional" data-question="What are the risk factors?">
+                                                <span>⚠️</span> Risk Factors
+                                            </button>
+                                            <button class="quick-btn-professional" data-question="How can I prevent liver disease?">
+                                                <span>🛡️</span> Prevention
+                                            </button>
+                                            <button class="quick-btn-professional" data-question="What do liver function test results mean?">
+                                                <span>📊</span> Test Results
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History Tab -->
+                <div class="tab-panel" id="historyTab">
+                    <div class="dashboard-main-layout">
+                        <div class="dashboard-main-panel">
+                            <div class="panel-header-professional">
+                                <div class="panel-header-left">
+                                    <div class="panel-icon-large">📋</div>
+                                    <div>
+                                        <h2>Detection History</h2>
+                                        <p>View your past risk assessments and track your health over time</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body-professional">
+                                <div class="history-container-professional">
+                                    <div class="history-list-professional" id="historyList">
+                                        <div class="no-history-professional">
+                                            <div class="no-history-icon">📊</div>
+                                            <h3>No detection history yet</h3>
+                                            <p>Run your first analysis in the Detection tab to get started!</p>
+                                            <button class="btn btn-primary" onclick="document.querySelector('[data-tab=detection]').click()">Go to Detection</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LiverCare AI</h3>
+                    <p>Advanced liver disease detection using machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developer</h4>
+                    <p>Crafted by <a href="developer.html" class="developer-link">Muhammad Shayan Umar</a> of XtarzLab.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
+                <p>Developed by XtarzLab</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript Modules -->
+    <script src="js/utils/animations.js"></script>
+    <script src="js/utils/scrollObserver.js"></script>
+    <script src="js/modules/navigation.js"></script>
+    <script src="js/modules/detection.js"></script>
+    <script src="js/modules/chatbot.js"></script>
+    <script src="js/modules/dashboard.js"></script>
+</body>
+</html>

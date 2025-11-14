@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection - Liver Disease Detection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Redirect to login if not authenticated
+        window.addEventListener('DOMContentLoaded', function() {
+            const currentUser = sessionStorage.getItem('currentUser');
+            if (!currentUser) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LiverCare AI</h1>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="detection.html" class="active">Detection</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="chatbot.html">AI Chatbot</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Detection Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Liver Disease Detection</h1>
+            <p>Enter your health information for AI-powered risk assessment</p>
+        </div>
+    </section>
+
+    <!-- Detection Form -->
+    <section class="detection-section">
+        <div class="container">
+            <div class="detection-wrapper">
+                <div class="form-container">
+                    <h2>Patient Information</h2>
+                    <form id="detectionForm" class="detection-form">
+                        <div class="form-group">
+                            <label for="age">Age <span class="required">*</span></label>
+                            <input type="number" id="age" name="age" min="1" max="120" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="0" required>
+                                    <span>Female</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="1" required>
+                                    <span>Male</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bmi">BMI (Body Mass Index) <span class="required">*</span></label>
+                            <input type="number" id="bmi" name="bmi" step="0.1" min="10" max="50" required>
+                            <small>Normal range: 18.5 - 24.9</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alcohol">Alcohol Consumption <span class="required">*</span></label>
+                            <input type="number" id="alcohol" name="alcohol" step="0.1" min="0" required>
+                            <small>Units per week</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Smoking Status <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="smoking" value="0" required>
+                                    <span>No</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="smoking" value="1" required>
+                                    <span>Yes</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Genetic Risk (Family History) <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="geneticRisk" value="0" required>
+                                    <span>No</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="geneticRisk" value="1" required>
+                                    <span>Yes</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="physicalActivity">Physical Activity Level <span class="required">*</span></label>
+                            <input type="number" id="physicalActivity" name="physicalActivity" step="0.1" min="0" required>
+                            <small>Hours per week</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Diabetes <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="diabetes" value="0" required>
+                                    <span>No</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="diabetes" value="1" required>
+                                    <span>Yes</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hypertension <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="hypertension" value="0" required>
+                                    <span>No</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="hypertension" value="1" required>
+                                    <span>Yes</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="liverFunctionTest">Liver Function Test Value <span class="required">*</span></label>
+                            <input type="number" id="liverFunctionTest" name="liverFunctionTest" step="0.1" min="0" required>
+                            <small>ALT/AST levels (IU/L)</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                            <span class="btn-text">Analyze Risk</span>
+                            <span class="btn-loader">
+                                <span class="loading-dots">
+                                    <span></span><span></span><span></span>
+                                </span>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="results-container" style="display: none;">
+                    <h2>Analysis Results</h2>
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>Risk Assessment</h3>
+                        </div>
+                        <div class="result-content">
+                            <div class="probability-display">
+                                <div class="probability-circle" id="probabilityCircle">
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e0e0e0" stroke-width="8"/>
+                                        <circle cx="60" cy="60" r="54" fill="none" stroke="#4CAF50" stroke-width="8" 
+                                                id="probabilityArc" stroke-dasharray="339.292" stroke-dashoffset="339.292" 
+                                                transform="rotate(-90 60 60)" stroke-linecap="round"/>
+                                    </svg>
+                                    <div class="probability-text">
+                                        <span id="probabilityValue">0</span>%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="risk-level" id="riskLevel">
+                                <span class="risk-badge" id="riskBadge">Low Risk</span>
+                            </div>
+                            <div class="result-details">
+                                <p id="resultMessage">Based on the provided information, your risk assessment is being calculated.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendations" id="recommendations">
+                        <h3>Recommendations</h3>
+                        <ul id="recommendationsList"></ul>
+                    </div>
+                    <button class="btn btn-secondary" onclick="resetForm()">New Analysis</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LiverCare AI</h3>
+                    <p>Advanced liver disease detection using machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="chatbot.html">AI Chatbot</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developer</h4>
+                    <p>Crafted by <a href="developer.html" class="developer-link">Muhammad Shayan Umar</a> of XtarzLab.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
+                <p>Developed by XtarzLab</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript Modules -->
+    <script src="js/utils/animations.js"></script>
+    <script src="js/utils/scrollObserver.js"></script>
+    <script src="js/modules/navigation.js"></script>
+    <script src="js/modules/detection.js"></script>
+</body>
+</html>
+

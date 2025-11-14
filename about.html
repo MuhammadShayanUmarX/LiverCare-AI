@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Liver Disease Detection</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LiverCare AI</h1>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>About LiverCare AI</h1>
+            <p>Understanding our mission, methodology, and technology</p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="content-text">
+                <p>LiverCare AI is an advanced machine learning-based system designed to assist in the early detection of liver disease. Our platform leverages state-of-the-art ensemble learning techniques to provide accurate and reliable risk assessments.</p>
+                <p>Early detection of liver disease is crucial for effective treatment and improved patient outcomes. Our system analyzes multiple health indicators including age, BMI, lifestyle factors, medical history, and liver function test results to provide comprehensive risk assessment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Methodology</h2>
+            <div class="methodology-content">
+                <h3>Machine Learning Models</h3>
+                <p>Our system employs multiple machine learning algorithms to ensure robust and accurate predictions:</p>
+                <div class="models-list">
+                    <div class="model-item scroll-reveal">
+                        <h4>1. Logistic Regression</h4>
+                        <p>Baseline linear model providing interpretable coefficients for feature importance.</p>
+                    </div>
+                    <div class="model-item scroll-reveal">
+                        <h4>2. Random Forest</h4>
+                        <p>Ensemble of decision trees capturing non-linear relationships with 96.7% accuracy.</p>
+                    </div>
+                    <div class="model-item scroll-reveal">
+                        <h4>3. XGBoost</h4>
+                        <p>Gradient boosting algorithm achieving 96.9% accuracy with excellent feature handling.</p>
+                    </div>
+                    <div class="model-item scroll-reveal">
+                        <h4>4. Support Vector Machine (SVM)</h4>
+                        <p>RBF kernel SVM providing 91.1% accuracy with strong generalization.</p>
+                    </div>
+                    <div class="model-item scroll-reveal">
+                        <h4>5. Neural Network (MLP)</h4>
+                        <p>Multi-layer perceptron with 128-64 hidden layers achieving 96.9% accuracy.</p>
+                    </div>
+                </div>
+                <h3>Ensemble Methods</h3>
+                <div class="models-list">
+                    <div class="model-item scroll-reveal">
+                        <h4>Voting Classifier (MLP + Random Forest)</h4>
+                        <p>Our best-performing model combining MLP and Random Forest through soft voting, achieving <strong>97.9% accuracy</strong> and <strong>99.5% ROC-AUC</strong>.</p>
+                    </div>
+                    <div class="model-item scroll-reveal">
+                        <h4>Voting Classifier (MLP + XGBoost)</h4>
+                        <p>Alternative ensemble achieving 97.5% accuracy with excellent precision.</p>
+                    </div>
+                    <div class="model-item scroll-reveal">
+                        <h4>Stacking Classifier</h4>
+                        <p>Meta-learner approach using Logistic Regression to combine predictions from multiple base models.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset Information -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Dataset Information</h2>
+            <div class="dataset-info">
+                <div class="info-card">
+                    <h3>Dataset Size</h3>
+                    <p class="info-number">5,000</p>
+                    <p class="info-label">Total Samples</p>
+                </div>
+                <div class="info-card">
+                    <h3>Features</h3>
+                    <p class="info-number">10</p>
+                    <p class="info-label">Input Variables</p>
+                </div>
+                <div class="info-card">
+                    <h3>Distribution</h3>
+                    <p class="info-number">50.94%</p>
+                    <p class="info-label">Positive Cases</p>
+                </div>
+            </div>
+            <div class="features-list">
+                <h3>Input Features</h3>
+                <ul>
+                    <li><strong>Age:</strong> Patient age in years</li>
+                    <li><strong>Gender:</strong> Biological gender (0: Female, 1: Male)</li>
+                    <li><strong>BMI:</strong> Body Mass Index</li>
+                    <li><strong>Alcohol Consumption:</strong> Alcohol intake level</li>
+                    <li><strong>Smoking:</strong> Smoking status (0: No, 1: Yes)</li>
+                    <li><strong>Genetic Risk:</strong> Family history of liver disease (0: No, 1: Yes)</li>
+                    <li><strong>Physical Activity:</strong> Level of physical activity</li>
+                    <li><strong>Diabetes:</strong> Diabetes status (0: No, 1: Yes)</li>
+                    <li><strong>Hypertension:</strong> High blood pressure status (0: No, 1: Yes)</li>
+                    <li><strong>Liver Function Test:</strong> Liver function test value</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Performance -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Model Performance Metrics</h2>
+            <div class="performance-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1-Score</th>
+                            <th>ROC-AUC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Logistic Regression</td>
+                            <td>86.0%</td>
+                            <td>87.4%</td>
+                            <td>84.7%</td>
+                            <td>86.0%</td>
+                            <td>93.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Random Forest</td>
+                            <td>96.7%</td>
+                            <td>96.3%</td>
+                            <td>97.2%</td>
+                            <td>96.8%</td>
+                            <td>99.4%</td>
+                        </tr>
+                        <tr>
+                            <td>XGBoost</td>
+                            <td>96.9%</td>
+                            <td>96.3%</td>
+                            <td>97.6%</td>
+                            <td>97.0%</td>
+                            <td>99.4%</td>
+                        </tr>
+                        <tr>
+                            <td>SVM (RBF)</td>
+                            <td>91.1%</td>
+                            <td>92.5%</td>
+                            <td>89.8%</td>
+                            <td>91.1%</td>
+                            <td>96.3%</td>
+                        </tr>
+                        <tr>
+                            <td>Neural Net (MLP)</td>
+                            <td>96.9%</td>
+                            <td>97.2%</td>
+                            <td>96.7%</td>
+                            <td>96.9%</td>
+                            <td>98.9%</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>Voting (MLP + RF)</strong></td>
+                            <td><strong>97.9%</strong></td>
+                            <td><strong>98.0%</strong></td>
+                            <td><strong>97.8%</strong></td>
+                            <td><strong>97.9%</strong></td>
+                            <td><strong>99.5%</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Voting (MLP + XGB)</td>
+                            <td>97.5%</td>
+                            <td>97.6%</td>
+                            <td>97.5%</td>
+                            <td>97.5%</td>
+                            <td>99.5%</td>
+                        </tr>
+                        <tr>
+                            <td>Stacking</td>
+                            <td>96.8%</td>
+                            <td>96.3%</td>
+                            <td>97.5%</td>
+                            <td>96.9%</td>
+                            <td>99.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team/Credits -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Credits</h2>
+            <div class="content-text">
+                <p><strong>Author:</strong> Talha</p>
+                <p><strong>Dataset:</strong> Extended Liver Disease Dataset (5,000 samples)</p>
+                <p><strong>Technology Stack:</strong> Python, Scikit-learn, XGBoost, TensorFlow/Keras</p>
+                <p><strong>Evaluation Metrics:</strong> Accuracy, Precision, Recall, F1-Score, ROC-AUC</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LiverCare AI</h3>
+                    <p>Advanced liver disease detection using machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="chatbot.html">AI Chatbot</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developer</h4>
+                    <p>Crafted by <a href="developer.html" class="developer-link">Muhammad Shayan Umar</a> of XtarzLab.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
+                <p>Developed by XtarzLab</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript Modules -->
+    <script src="js/utils/animations.js"></script>
+    <script src="js/utils/scrollObserver.js"></script>
+    <script src="js/modules/navigation.js"></script>
+</body>
+</html>
+

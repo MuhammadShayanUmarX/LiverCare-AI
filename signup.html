@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - LiverCare AI</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LiverCare AI</h1>
+                <p class="nav-tagline">AI-Powered Liver Health Monitoring</p>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html" class="active btn-nav-cta">Sign Up Free</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Banner for Non-Logged Users -->
+    <div class="header-banner">
+        <div class="container">
+            <div class="banner-content">
+                <p class="banner-text">
+                    <span class="banner-icon">✨</span>
+                    <strong>Join thousands</strong> of users monitoring their liver health with our AI-powered platform. Get instant risk assessment and personalized health insights.
+                </p>
+                <a href="login.html" class="btn btn-secondary btn-small">Already have an account? Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Create Account</h2>
+                        <p>Join us to get started with liver health monitoring</p>
+                    </div>
+                    
+                    <form id="signupForm" class="auth-form">
+                        <div id="signupError" class="alert alert-danger" style="display: none;"></div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    placeholder="Enter your first name"
+                                    required
+                                    autocomplete="given-name"
+                                >
+                                <small class="error-message" id="firstNameError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    placeholder="Enter your last name"
+                                    required
+                                    autocomplete="family-name"
+                                >
+                                <small class="error-message" id="lastNameError"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address <span class="required">*</span></label>
+                            <input 
+                                type="email" 
+                                id="signupEmail" 
+                                name="email" 
+                                placeholder="Enter your email"
+                                required
+                                autocomplete="email"
+                            >
+                            <small class="error-message" id="signupEmailError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="Enter your phone number"
+                                autocomplete="tel"
+                            >
+                            <small class="error-message" id="phoneError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signupPassword">Password <span class="required">*</span></label>
+                            <div class="password-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="signupPassword" 
+                                    name="password" 
+                                    placeholder="Create a password"
+                                    required
+                                    autocomplete="new-password"
+                                >
+                                <button type="button" class="password-toggle" id="toggleSignupPassword">
+                                    <span class="eye-icon">👁️</span>
+                                </button>
+                            </div>
+                            <small class="error-message" id="signupPasswordError"></small>
+                            <div class="password-strength" id="passwordStrength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="strengthFill"></div>
+                                </div>
+                                <small class="strength-text" id="strengthText">Password strength: <span id="strengthLevel">Weak</span></small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                            <div class="password-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="confirmPassword" 
+                                    name="confirmPassword" 
+                                    placeholder="Confirm your password"
+                                    required
+                                    autocomplete="new-password"
+                                >
+                                <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                                    <span class="eye-icon">👁️</span>
+                                </button>
+                            </div>
+                            <small class="error-message" id="confirmPasswordError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" id="terms" required>
+                                <span>I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a> <span class="required">*</span></span>
+                            </label>
+                            <small class="error-message" id="termsError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span>Subscribe to our newsletter for health tips and updates</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-block" id="signupBtn">
+                            <span class="btn-text">Create Account</span>
+                            <span class="btn-loader">
+                                <span class="loading-dots">
+                                    <span></span><span></span><span></span>
+                                </span>
+                            </span>
+                        </button>
+                    </form>
+
+                    <div class="auth-divider">
+                        <span>Or</span>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.html">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LiverCare AI</h3>
+                    <p>Advanced liver disease detection using machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="chatbot.html">AI Chatbot</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developer</h4>
+                    <p>Crafted by <a href="developer.html" class="developer-link">Muhammad Shayan Umar</a> of XtarzLab.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
+                <p>Developed by XtarzLab</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript Modules -->
+    <script src="js/utils/animations.js"></script>
+    <script src="js/utils/scrollObserver.js"></script>
+    <script src="js/modules/navigation.js"></script>
+    <script src="js/modules/auth.js"></script>
+</body>
+</html>
+

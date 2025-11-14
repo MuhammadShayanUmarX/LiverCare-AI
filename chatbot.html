@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - Liver Disease Detection</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LiverCare AI</h1>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="chatbot.html" class="active">AI Chatbot</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chatbot Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>AI Chatbot Assistant</h1>
+            <p>Ask questions about liver disease, symptoms, prevention, and more</p>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section class="chatbot-section">
+        <div class="container">
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <div class="chatbot-avatar">🤖</div>
+                    <div class="chatbot-info">
+                        <h3>LiverCare AI Assistant</h3>
+                        <p>Online</p>
+                    </div>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            <p>Hello! I'm your LiverCare AI assistant. I can help you with questions about:</p>
+                            <ul>
+                                <li>Liver disease symptoms</li>
+                                <li>Risk factors</li>
+                                <li>Prevention tips</li>
+                                <li>Test interpretation</li>
+                                <li>General liver health information</li>
+                            </ul>
+                            <p>How can I assist you today?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatbot-input-container">
+                    <input type="text" id="chatInput" placeholder="Type your message here..." autocomplete="off">
+                    <button id="sendBtn" class="btn-send">Send</button>
+                </div>
+                <div class="quick-questions">
+                    <p>Quick questions:</p>
+                    <div class="quick-buttons">
+                        <button class="quick-btn" data-question="What are the symptoms of liver disease?">Symptoms</button>
+                        <button class="quick-btn" data-question="What are the risk factors?">Risk Factors</button>
+                        <button class="quick-btn" data-question="How can I prevent liver disease?">Prevention</button>
+                        <button class="quick-btn" data-question="What do liver function test results mean?">Test Results</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LiverCare AI</h3>
+                    <p>Advanced liver disease detection using machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="chatbot.html">AI Chatbot</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Developer</h4>
+                    <p>Crafted by <a href="developer.html" class="developer-link">Muhammad Shayan Umar</a> of XtarzLab.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
+                <p>Developed by XtarzLab</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript Modules -->
+    <script src="js/utils/animations.js"></script>
+    <script src="js/utils/scrollObserver.js"></script>
+    <script src="js/modules/navigation.js"></script>
+    <script src="js/modules/chatbot.js"></script>
+</body>
+</html>
+
