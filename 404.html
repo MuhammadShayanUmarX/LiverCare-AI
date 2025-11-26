@@ -5,22 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Blog Post - LiverCare AI | Liver Health Articles</title>
-    <meta name="title" content="Blog Post - LiverCare AI | Liver Health Articles">
-    <meta name="description" content="Read informative articles about liver health, disease prevention, and treatment options from LiverCare AI.">
-    <meta name="robots" content="index, follow">
+    <title>404 - Page Not Found | LiverCare AI</title>
+    <meta name="title" content="404 - Page Not Found | LiverCare AI">
+    <meta name="description" content="The page you are looking for could not be found. Return to LiverCare AI homepage.">
+    <meta name="robots" content="noindex, nofollow">
     
     <!-- Google Fonts - Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- Performance & Resource Hints -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .error-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
+        
+        .error-content {
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.8;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to Content Link - Accessibility -->
@@ -31,13 +70,12 @@
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
+                <p class="nav-tagline">AI-Powered Liver Health Monitoring</p>
             </div>
             <ul class="nav-menu" id="navMenu" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="about.html" role="menuitem">About</a></li>
                 <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
-                <li role="none"><a href="chatbot.html" role="menuitem">AI Chatbot</a></li>
-                <li role="none"><a href="developer.html" role="menuitem">Developer</a></li>
                 <li role="none"><a href="login.html" role="menuitem">Login</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
@@ -48,57 +86,39 @@
         </div>
     </nav>
 
-    <!-- Blog Post Section -->
-    <section class="blog-post-section">
-        <div class="container">
-            <div class="blog-post-wrapper">
-                <article class="blog-post" id="blogPost">
-                    <!-- Blog post content will be loaded here -->
-                </article>
-
-                <aside class="blog-sidebar">
-                    <div class="sidebar-widget">
-                        <h3>Related Articles</h3>
-                        <div class="related-posts" id="relatedPosts">
-                            <!-- Related posts will be loaded here -->
-                        </div>
-                    </div>
-
-                    <div class="sidebar-widget">
-                        <h3>Categories</h3>
-                        <ul class="category-list">
-                            <li><a href="blog.html?category=prevention">Prevention</a></li>
-                            <li><a href="blog.html?category=symptoms">Symptoms</a></li>
-                            <li><a href="blog.html?category=nutrition">Nutrition</a></li>
-                            <li><a href="blog.html?category=research">Research</a></li>
-                        </ul>
-                    </div>
-                </aside>
+    <!-- Error Page Content -->
+    <main class="error-page" id="main-content">
+        <div class="error-content">
+            <div class="error-code" aria-label="404">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                Sorry, the page you are looking for doesn't exist or has been moved. 
+                Please check the URL or return to our homepage.
+            </p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary" aria-label="Return to homepage">Go to Homepage</a>
+                <a href="javascript:history.back()" class="btn btn-secondary" aria-label="Go back to previous page">Go Back</a>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>LiverCare AI</h3>
                     <p>Advanced liver disease detection using machine learning.</p>
                 </div>
-                <div class="footer-section">
+                <nav class="footer-section" aria-label="Footer navigation">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="chatbot.html">AI Chatbot</a></li>
+                        <li><a href="developer.html">Developer</a></li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Developer</h4>
-                    <p>Crafted by <a href="developer.html" class="developer-link">Muhammad Shayan Umar</a> of XtarzLab.</p>
-                </div>
+                </nav>
                 <div class="footer-section">
                     <h4>Disclaimer</h4>
                     <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
@@ -113,9 +133,7 @@
 
     <!-- Load JavaScript Modules -->
     <script src="js/utils/animations.js"></script>
-    <script src="js/utils/scrollObserver.js"></script>
     <script src="js/modules/navigation.js"></script>
-    <script src="js/modules/blog.js"></script>
 </body>
 </html>
 

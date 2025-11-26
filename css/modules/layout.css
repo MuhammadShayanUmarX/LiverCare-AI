@@ -4,12 +4,13 @@
 
 /* Navigation */
 .navbar {
-    background-color: var(--bg-white);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--bg-dark);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(0, 255, 255, 0.05);
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
     padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .navbar .container {
@@ -21,17 +22,20 @@
 .nav-brand h1 {
     font-size: 1.5rem;
     color: var(--primary-color);
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
     margin: 0;
     line-height: 1.2;
+    text-shadow: var(--glow-cyan);
 }
 
 .nav-tagline {
     font-size: 0.75rem;
     color: var(--text-secondary);
     margin: 0;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     line-height: 1;
+    font-family: var(--font-body);
 }
 
 .nav-menu {
@@ -52,6 +56,7 @@
 .nav-menu a:hover,
 .nav-menu a.active {
     color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .nav-menu a.active::after {
@@ -62,6 +67,7 @@
     right: 0;
     height: 2px;
     background-color: var(--primary-color);
+    box-shadow: var(--glow-cyan);
     animation: fadeIn 0.3s ease;
 }
 
@@ -86,9 +92,10 @@
 
 /* Header Banner for Non-Logged Users */
 .header-banner {
-    background: linear-gradient(135deg, rgba(31, 191, 113, 0.12) 0%, rgba(139, 195, 74, 0.12) 100%);
-    border-bottom: 2px solid var(--border-light);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, rgba(57, 255, 20, 0.05) 100%);
+    border-bottom: 1px solid var(--border-color);
     padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--border-color);
 }
 
 .banner-content {
@@ -141,12 +148,24 @@
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #000000 100%);
     color: var(--text-white);
     padding: 6rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .hero::before {
@@ -183,17 +202,23 @@
 }
 
 .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
     margin-bottom: var(--spacing-md);
     animation: fadeInUp 0.8s ease;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.3);
+    letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
     margin-bottom: var(--spacing-xl);
-    opacity: 0.95;
+    opacity: 0.9;
     animation: fadeInUp 1s ease;
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.8;
 }
 
 .hero-highlights {
@@ -276,11 +301,13 @@ section {
     text-align: center;
     margin-bottom: 3rem;
     color: var(--text-primary);
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.01em;
 }
 
 .bg-light {
-    background-color: var(--neutral-bg);
+    background-color: var(--bg-dark);
 }
 
 /* Features Grid */
@@ -309,10 +336,12 @@ section {
 
 /* Statistics Section */
 .statistics {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #000000 100%);
     color: var(--text-white);
     position: relative;
     overflow: hidden;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .statistics::before {
@@ -342,18 +371,21 @@ section {
 }
 
 .stat-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--bg-card);
     backdrop-filter: blur(10px);
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-color);
     transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
 }
 
 .stat-card:hover {
     transform: translateY(-5px) scale(1.05);
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--bg-elevated);
+    border-color: var(--border-neon);
+    box-shadow: var(--shadow-xl), var(--glow-cyan);
 }
 
 .stat-number {
@@ -425,10 +457,11 @@ section {
 
 /* Footer */
 .footer {
-    background-color: var(--text-primary);
+    background-color: var(--bg-dark);
     color: var(--text-white);
     padding: 3rem 0 1rem;
     margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {

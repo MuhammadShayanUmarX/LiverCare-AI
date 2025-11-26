@@ -3,27 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Liver Disease Detection</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>About Us - LiverCare AI | How Our AI Detection Works</title>
+    <meta name="title" content="About Us - LiverCare AI | How Our AI Detection Works">
+    <meta name="description" content="Learn about LiverCare AI's advanced machine learning models, methodology, and how we achieve 97.9% accuracy in liver disease detection.">
+    <meta name="keywords" content="about livercare ai, machine learning liver detection, AI methodology, liver disease technology">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance & Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Skip to Content Link - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="login.html">Login</a></li>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" class="active" role="menuitem" aria-current="page">About</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="developer.html" role="menuitem">Developer</a></li>
+                <li role="none"><a href="login.html" role="menuitem">Login</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
@@ -260,7 +280,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
-                <p>Developed by XtarzLab</p>
+                <p>Developed by <strong>Shayan</strong> (Muhammad Shayan Umar) of XtarzLab</p>
             </div>
         </div>
     </footer>

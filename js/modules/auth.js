@@ -220,8 +220,9 @@ const Auth = {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Store session
-                sessionStorage.setItem('currentUser', JSON.stringify(data.user));
+                // Store session in localStorage (persists after browser close)
+                localStorage.setItem('currentUser', JSON.stringify(data.user));
+                console.log('User logged in and saved to localStorage');
                 // Redirect to dashboard
                 window.location.href = 'dashboard.html';
             } else {
@@ -241,7 +242,7 @@ const Auth = {
             const user = users.find(u => u.email === email && u.password === password);
 
             if (user) {
-                sessionStorage.setItem('currentUser', JSON.stringify({
+                localStorage.setItem('currentUser', JSON.stringify({
                     id: user.id,
                     email: user.email,
                     firstName: user.firstName,
@@ -319,7 +320,7 @@ const Auth = {
         .then(data => {
             if (data.success) {
                 // Store session
-                sessionStorage.setItem('currentUser', JSON.stringify({
+                localStorage.setItem('currentUser', JSON.stringify({
                     id: data.userId,
                     email,
                     firstName,
@@ -364,7 +365,7 @@ const Auth = {
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
 
-            sessionStorage.setItem('currentUser', JSON.stringify({
+            localStorage.setItem('currentUser', JSON.stringify({
                 id: newUser.id,
                 email: newUser.email,
                 firstName: newUser.firstName,

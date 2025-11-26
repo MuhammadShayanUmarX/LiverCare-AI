@@ -4,11 +4,9 @@ services:
     env: node
     buildCommand: |
       npm install
-      python3 -m pip install --user joblib numpy scikit-learn scipy threadpoolctl || python -m pip install --user joblib numpy scikit-learn scipy threadpoolctl
+      pip install -r requirements.txt
     startCommand: node server.js
     envVars:
-      - key: PORT
-        value: 4000
       - key: NODE_ENV
         value: production
       - key: PYTHON_PATH

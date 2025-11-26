@@ -3,28 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer - LiverCare AI</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Developer - LiverCare AI | Meet the Creator</title>
+    <meta name="title" content="Developer - LiverCare AI | Meet the Creator">
+    <meta name="description" content="Learn about the developer behind LiverCare AI, Muhammad Shayan Umar of XtarzLab, and the technology powering this innovative health platform.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance & Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Skip to Content Link - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
                 <p class="nav-tagline">AI-Powered Liver Health Monitoring</p>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="login.html">Login</a></li>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="developer.html" class="active" role="menuitem" aria-current="page">Developer</a></li>
+                <li role="none"><a href="login.html" role="menuitem">Login</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
@@ -82,7 +102,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
-                <p>Developed by XtarzLab</p>
+                <p>Developed by <strong>Shayan</strong> (Muhammad Shayan Umar) of XtarzLab</p>
             </div>
         </div>
     </footer>

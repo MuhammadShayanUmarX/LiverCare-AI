@@ -5,6 +5,12 @@
 
 // Make Detection available globally for dashboard
 window.Detection = {
+    // Store current detection data for PDF generation
+    currentDetectionData: null,
+    currentProbability: null,
+    currentRiskLevel: null,
+    currentRecommendations: null,
+
     async fetchPrediction(data) {
         try {
             const response = await fetch('/api/predict', {
@@ -178,6 +184,12 @@ window.Detection = {
         if (!resultsSection) return;
 
         const riskInfo = this.getRiskLevel(probability);
+        
+        // Store data for PDF generation
+        this.currentDetectionData = data;
+        this.currentProbability = probability;
+        this.currentRiskLevel = riskInfo;
+        this.currentRecommendations = this.getRecommendations(probability, data);
         
         // Update probability value with animation
         const probValue = document.getElementById('probabilityValue');
@@ -355,6 +367,236 @@ window.Detection = {
         
         // Make resetForm available globally
         window.resetForm = () => this.resetForm();
+    },
+
+    downloadPDF() {
+        // Check if jsPDF is available
+        if (typeof window.jspdf === 'undefined') {
+            alert('PDF library not loaded. Please refresh the page and try again.');
+            return;
+        }
+
+        // Check if there's detection data available
+        if (!this.currentDetectionData || this.currentProbability === null) {
+            alert('No detection results available. Please run an analysis first.');
+            return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        const data = this.currentDetectionData;
+        const probability = this.currentProbability;
+        const riskInfo = this.currentRiskLevel;
+        const recommendations = this.currentRecommendations || [];
+        
+        // Get current date and time
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+        const timeStr = now.toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+
+        let yPos = 20;
+        const lineHeight = 7;
+        const margin = 20;
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const contentWidth = pageWidth - (margin * 2);
+
+        // Header
+        doc.setFontSize(20);
+        doc.setTextColor(31, 191, 113); // Green color
+        doc.text('LiverCare AI', margin, yPos);
+        
+        yPos += 8;
+        doc.setFontSize(16);
+        doc.setTextColor(0, 0, 0);
+        doc.text('Liver Disease Risk Assessment Report', margin, yPos);
+        
+        yPos += 10;
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text(`Generated on: ${dateStr} at ${timeStr}`, margin, yPos);
+        
+        yPos += 15;
+
+        // Patient Information Section
+        doc.setFontSize(14);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont(undefined, 'bold');
+        doc.text('Patient Information', margin, yPos);
+        yPos += 8;
+        
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(0, 0, 0);
+        
+        const patientInfo = [
+            ['Age:', data.age + ' years'],
+            ['Gender:', data.gender == 1 ? 'Male' : 'Female'],
+            ['BMI (Body Mass Index):', data.bmi.toFixed(1)],
+            ['Alcohol Consumption:', data.alcohol.toFixed(1) + ' units/week'],
+            ['Smoking Status:', data.smoking == 1 ? 'Yes' : 'No'],
+            ['Genetic Risk (Family History):', data.geneticRisk == 1 ? 'Yes' : 'No'],
+            ['Physical Activity:', data.physicalActivity.toFixed(1) + ' hours/week'],
+            ['Diabetes:', data.diabetes == 1 ? 'Yes' : 'No'],
+            ['Hypertension:', data.hypertension == 1 ? 'Yes' : 'No'],
+            ['Liver Function Test:', data.liverFunctionTest.toFixed(1) + ' IU/L']
+        ];
+
+        patientInfo.forEach(([label, value]) => {
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+            doc.text(label, margin, yPos);
+            doc.text(value, margin + 70, yPos);
+            yPos += lineHeight;
+        });
+
+        yPos += 10;
+
+        // Risk Assessment Section
+        if (yPos > 250) {
+            doc.addPage();
+            yPos = 20;
+        }
+
+        doc.setFontSize(14);
+        doc.setFont(undefined, 'bold');
+        doc.text('Risk Assessment', margin, yPos);
+        yPos += 8;
+
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'normal');
+        
+        // Probability
+        doc.text('Risk Probability:', margin, yPos);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(31, 191, 113);
+        doc.text(probability.toFixed(1) + '%', margin + 70, yPos);
+        yPos += lineHeight;
+
+        // Risk Level
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(0, 0, 0);
+        doc.text('Risk Level:', margin, yPos);
+        doc.setFont(undefined, 'bold');
+        
+        // Color based on risk level
+        if (riskInfo.level === 'high') {
+            doc.setTextColor(220, 53, 69); // Red
+        } else if (riskInfo.level === 'medium') {
+            doc.setTextColor(255, 193, 7); // Orange/Yellow
+        } else {
+            doc.setTextColor(31, 191, 113); // Green
+        }
+        
+        doc.text(riskInfo.label, margin + 70, yPos);
+        yPos += 10;
+
+        // Result Message
+        if (yPos > 250) {
+            doc.addPage();
+            yPos = 20;
+        }
+
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(0, 0, 0);
+        
+        let message = `Based on the provided information, your risk of liver disease is ${probability.toFixed(1)}%. `;
+        if (riskInfo.level === 'low') {
+            message += 'This indicates a relatively low risk. However, it\'s important to maintain a healthy lifestyle and regular checkups.';
+        } else if (riskInfo.level === 'medium') {
+            message += 'This indicates a moderate risk. We recommend consulting with a healthcare professional for further evaluation.';
+        } else {
+            message += 'This indicates a higher risk. We strongly recommend consulting with a healthcare professional as soon as possible.';
+        }
+
+        const splitMessage = doc.splitTextToSize(message, contentWidth);
+        splitMessage.forEach(line => {
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+            doc.text(line, margin, yPos);
+            yPos += lineHeight;
+        });
+
+        yPos += 10;
+
+        // Recommendations Section
+        if (yPos > 250) {
+            doc.addPage();
+            yPos = 20;
+        }
+
+        doc.setFontSize(14);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(0, 0, 0);
+        doc.text('Recommendations', margin, yPos);
+        yPos += 8;
+
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'normal');
+        
+        recommendations.forEach((rec, index) => {
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+            doc.text(`${index + 1}. ${rec}`, margin + 5, yPos);
+            yPos += lineHeight + 2;
+        });
+
+        yPos += 10;
+
+        // Disclaimer
+        if (yPos > 250) {
+            doc.addPage();
+            yPos = 20;
+        }
+
+        doc.setFontSize(9);
+        doc.setTextColor(100, 100, 100);
+        doc.setFont(undefined, 'italic');
+        
+        const disclaimer = 'This report is generated for informational purposes only and should not replace professional medical advice. Always consult with qualified healthcare professionals for diagnosis and treatment decisions.';
+        const splitDisclaimer = doc.splitTextToSize(disclaimer, contentWidth);
+        splitDisclaimer.forEach(line => {
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+            doc.text(line, margin, yPos);
+            yPos += lineHeight;
+        });
+
+        // Footer
+        const totalPages = doc.internal.pages.length - 1;
+        for (let i = 1; i <= totalPages; i++) {
+            doc.setPage(i);
+            doc.setFontSize(8);
+            doc.setTextColor(150, 150, 150);
+            doc.text(
+                `Page ${i} of ${totalPages} | LiverCare AI - Powered by XtarzLab`,
+                pageWidth / 2,
+                doc.internal.pageSize.getHeight() - 10,
+                { align: 'center' }
+            );
+        }
+
+        // Generate filename with date
+        const filename = `LiverCare_Report_${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}.pdf`;
+        
+        // Save the PDF
+        doc.save(filename);
     }
 };
 

@@ -3,28 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot - Liver Disease Detection</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>AI Chatbot - LiverCare AI | Get Answers About Liver Health</title>
+    <meta name="title" content="AI Chatbot - LiverCare AI | Get Answers About Liver Health">
+    <meta name="description" content="Chat with our AI assistant about liver disease symptoms, risk factors, prevention tips, and general liver health information.">
+    <meta name="keywords" content="liver health chatbot, AI medical assistant, liver disease questions, health information">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance & Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Skip to Content Link - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="chatbot.html" class="active">AI Chatbot</a></li>
-                <li><a href="login.html">Login</a></li>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="chatbot.html" class="active" role="menuitem" aria-current="page">AI Chatbot</a></li>
+                <li role="none"><a href="developer.html" role="menuitem">Developer</a></li>
+                <li role="none"><a href="login.html" role="menuitem">Login</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
@@ -37,17 +57,17 @@
     </section>
 
     <!-- Chatbot Section -->
-    <section class="chatbot-section">
+    <section class="chatbot-section" id="main-content">
         <div class="container">
             <div class="chatbot-container">
                 <div class="chatbot-header">
-                    <div class="chatbot-avatar">🤖</div>
+                    <div class="chatbot-avatar" aria-hidden="true">🤖</div>
                     <div class="chatbot-info">
                         <h3>LiverCare AI Assistant</h3>
-                        <p>Online</p>
+                        <p aria-live="polite">Online</p>
                     </div>
                 </div>
-                <div class="chatbot-messages" id="chatMessages">
+                <div class="chatbot-messages" id="chatMessages" role="log" aria-label="Chat messages" aria-live="polite">
                     <div class="message bot-message">
                         <div class="message-content">
                             <p>Hello! I'm your LiverCare AI assistant. I can help you with questions about:</p>
@@ -63,8 +83,9 @@
                     </div>
                 </div>
                 <div class="chatbot-input-container">
-                    <input type="text" id="chatInput" placeholder="Type your message here..." autocomplete="off">
-                    <button id="sendBtn" class="btn-send">Send</button>
+                    <input type="text" id="chatInput" placeholder="Type your message here..." autocomplete="off" aria-label="Type your message" aria-describedby="chatbot-help">
+                    <button id="sendBtn" class="btn-send" aria-label="Send message">Send</button>
+                    <span id="chatbot-help" class="sr-only">Type your question about liver health and press Enter or click Send</span>
                 </div>
                 <div class="quick-questions">
                     <p>Quick questions:</p>
@@ -106,7 +127,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
-                <p>Developed by XtarzLab</p>
+                <p>Developed by <strong>Shayan</strong> (Muhammad Shayan Umar) of XtarzLab</p>
             </div>
         </div>
     </footer>

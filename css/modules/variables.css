@@ -2,54 +2,70 @@
    CSS Variables - Design System
    ============================================ */
 :root {
-    /* Primary Colors */
-    --primary-color: #1FBF71;
-    --primary-dark: #158F52;
-    --primary-light: #A8F0C5;
+    /* Primary Neon Colors */
+    --primary-color: #00FFFF;        /* Neon Cyan - Primary actions, main brand */
+    --primary-dark: #00CCCC;        /* Darker cyan for hover states */
+    --primary-light: rgba(0, 255, 255, 0.2); /* Light cyan for backgrounds */
     
     /* Secondary Colors */
     --secondary-color: #FFFFFF;
-    --secondary-dark: #F0F0F0;
+    --secondary-dark: #E0E0E0;
     
-    /* Accent Colors */
-    --accent-color: #8BC34A;
-    --accent-dark: #5F8E2F;
-    --accent-light: #D4EFB0;
+    /* Accent Neon Colors */
+    --accent-color: #39FF14;        /* Neon Green - Success states, health indicators */
+    --accent-dark: #2ECC00;         /* Darker green */
+    --accent-light: rgba(57, 255, 20, 0.2);
+    --accent-purple: #BF00FF;       /* Neon Purple - Accent elements */
+    --accent-pink: #FF10F0;         /* Neon Pink - Special highlights */
     
-    /* Neutral Colors */
-    --neutral-bg: #F5F5F5;
-    --neutral-border: #E0E0E0;
-    --neutral-text: #666666;
+    /* Black Background System */
+    --bg-black: #000000;            /* Pure black - Main body background */
+    --bg-dark: #0A0A0A;             /* Dark gray - Card backgrounds */
+    --bg-card: #111111;             /* Charcoal - Elevated surfaces */
+    --bg-elevated: #1A1A1A;         /* Dark border - Borders and dividers */
     
-    /* Status Colors */
-    --success-color: #1FBF71;
-    --warning-color: #C5E1A5;
-    --danger-color: #0B6623;
-    --info-color: #8BC34A;
+    /* Neutral Colors - Dark Theme */
+    --neutral-bg: #0A0A0A;
+    --neutral-border: #1A1A1A;
+    --neutral-text: #999999;
     
-    /* Text Colors */
-    --text-primary: #1F2937;
-    --text-secondary: #6B7280;
-    --text-light: #9CA3AF;
+    /* Status Colors - Neon Theme */
+    --success-color: #39FF14;       /* Neon Green */
+    --warning-color: #FFD700;       /* Gold */
+    --danger-color: #FF1744;        /* Bright Red */
+    --info-color: #00FFFF;          /* Neon Cyan */
+    
+    /* Text Colors - Dark Theme */
+    --text-primary: #FFFFFF;        /* White - Primary text */
+    --text-secondary: #E0E0E0;     /* Light gray - Secondary text */
+    --text-light: #999999;          /* Muted gray - Tertiary text */
     --text-white: #FFFFFF;
+    --text-neon: #00FFFF;           /* Neon Cyan - Links and interactive text */
     
-    /* Background Colors */
-    --bg-white: #FFFFFF;
-    --bg-light: #F5F5F5;
-    --bg-primary: #E6F6EE;
-    --bg-accent: #F5FFF6;
+    /* Background Colors - Dark Theme */
+    --bg-white: #111111;            /* Dark card background */
+    --bg-light: #0A0A0A;            /* Dark background */
+    --bg-primary: rgba(0, 255, 255, 0.05); /* Subtle cyan background */
+    --bg-accent: rgba(57, 255, 20, 0.05);   /* Subtle green background */
     
-    /* Border Colors */
-    --border-color: #E0E0E0;
-    --border-light: #F0F0F0;
-    --border-dark: #CCCCCC;
+    /* Border Colors - Dark Theme */
+    --border-color: #1A1A1A;        /* Dark borders */
+    --border-light: #0A0A0A;
+    --border-dark: #333333;
+    --border-neon: rgba(0, 255, 255, 0.3); /* Neon borders */
     
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* Neon Glow Effects */
+    --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
+    --glow-green: 0 0 20px rgba(57, 255, 20, 0.5), 0 0 40px rgba(57, 255, 20, 0.3);
+    --glow-purple: 0 0 20px rgba(191, 0, 255, 0.5), 0 0 40px rgba(191, 0, 255, 0.3);
+    --glow-pink: 0 0 20px rgba(255, 16, 240, 0.5), 0 0 40px rgba(255, 16, 240, 0.3);
+    
+    /* Shadows - Dark Theme with Neon */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 255, 255, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.15);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 255, 255, 0.2);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 255, 255, 0.25);
     
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -71,6 +87,18 @@
     --transition-base: 0.3s ease;
     --transition-slow: 0.5s ease;
     
+    /* Focus States - Accessibility with Neon */
+    --focus-ring: 0 0 0 3px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+    --focus-ring-offset: 2px;
+    
+    /* Typography Scale */
+    --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
     /* Z-Index */
     --z-dropdown: 1000;
     --z-sticky: 1020;
@@ -78,5 +106,6 @@
     --z-modal: 1040;
     --z-popover: 1050;
     --z-tooltip: 1060;
+    --z-toast: 1070;
 }
 

@@ -12,12 +12,13 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    font-family: var(--font-body);
+    line-height: 1.75;
     color: var(--text-primary);
-    background-color: var(--bg-white);
+    background-color: var(--bg-black);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-weight: var(--font-weight-regular);
 }
 
 .container {
@@ -26,33 +27,75 @@ body {
     padding: 0 var(--spacing-lg);
 }
 
-/* Typography */
+/* Typography - Modern System */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
     line-height: 1.2;
     color: var(--text-primary);
+    letter-spacing: -0.02em;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
+h1 { 
+    font-size: 3.5rem; 
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
+}
+
+h2 { 
+    font-size: 2.5rem; 
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: -0.01em;
+}
+
+h3 { 
+    font-size: 2rem; 
+    font-weight: var(--font-weight-semibold);
+}
+
+h4 { 
+    font-size: 1.5rem; 
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
+}
+
+h5 { 
+    font-size: 1.25rem; 
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
+}
+
+h6 { 
+    font-size: 1rem; 
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
+}
 
 p {
     margin-bottom: var(--spacing-md);
     color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
+    font-weight: var(--font-weight-regular);
+}
+
+p.lead {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-weight: var(--font-weight-medium);
 }
 
 a {
-    color: var(--primary-color);
+    color: var(--text-neon);
     text-decoration: none;
-    transition: color var(--transition-base);
+    transition: all var(--transition-base);
+    font-weight: var(--font-weight-medium);
 }
 
 a:hover {
-    color: var(--primary-dark);
+    color: var(--primary-color);
+    text-shadow: var(--glow-cyan);
 }
 
 img {
@@ -80,6 +123,24 @@ ul, ol {
 .mb-3 { margin-bottom: var(--spacing-lg); }
 .mb-4 { margin-bottom: var(--spacing-xl); }
 
+/* Skip to Content Link - Accessibility */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--bg-black);
+    padding: var(--spacing-md);
+    text-decoration: none;
+    z-index: 9999;
+    font-weight: var(--font-weight-semibold);
+    box-shadow: var(--glow-cyan);
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
 /* Scroll Reveal Animation Base */
 .scroll-reveal {
     opacity: 0;
@@ -90,5 +151,29 @@ ul, ol {
 .scroll-reveal.revealed {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Screen Reader Only - Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
 }
 

@@ -185,7 +185,7 @@
 
 .hover-lift:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-xl), 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
 .hover-glow {
@@ -193,7 +193,36 @@
 }
 
 .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(31, 191, 113, 0.35);
+    box-shadow: var(--glow-cyan);
+}
+
+/* Neon Glow Animations */
+@keyframes neonGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.4);
+    }
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+    }
+}
+
+.neon-glow {
+    animation: neonGlow 2s ease-in-out infinite;
+}
+
+.neon-pulse {
+    animation: neonPulse 2s ease-in-out infinite;
 }
 
 /* Color Transition on Hover */
@@ -210,10 +239,11 @@
 .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 4px solid var(--neutral-border);
+    border: 4px solid var(--border-color);
     border-top-color: var(--primary-color);
     border-radius: var(--radius-full);
     animation: spin 0.8s linear infinite;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
 .loading-dots {
@@ -227,6 +257,7 @@
     background-color: var(--primary-color);
     border-radius: var(--radius-full);
     animation: pulse 1.4s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .loading-dots span:nth-child(2) {
@@ -252,15 +283,16 @@
     border-radius: var(--radius-full);
     animation: progressBar 2s ease-out;
     transition: width var(--transition-slow);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 /* Shimmer Effect */
 .shimmer {
     background: linear-gradient(
         90deg,
-        var(--neutral-bg) 0%,
-        rgba(255, 255, 255, 0.5) 50%,
-        var(--neutral-bg) 100%
+        var(--bg-dark) 0%,
+        rgba(0, 255, 255, 0.1) 50%,
+        var(--bg-dark) 100%
     );
     background-size: 1000px 100%;
     animation: shimmer 2s infinite;

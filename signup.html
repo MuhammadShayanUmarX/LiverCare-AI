@@ -3,29 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - LiverCare AI</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Sign Up - LiverCare AI | Create Free Account</title>
+    <meta name="title" content="Sign Up - LiverCare AI | Create Free Account">
+    <meta name="description" content="Create a free LiverCare AI account to access AI-powered liver disease detection, track your health history, and get personalized recommendations.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance & Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Redirect to dashboard if already logged in
+        window.addEventListener('DOMContentLoaded', function() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
 </head>
 <body>
+    <!-- Skip to Content Link - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
                 <p class="nav-tagline">AI-Powered Liver Health Monitoring</p>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html" class="active btn-nav-cta">Sign Up Free</a></li>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="developer.html" role="menuitem">Developer</a></li>
+                <li role="none"><a href="login.html" role="menuitem">Login</a></li>
+                <li role="none"><a href="signup.html" class="active btn-nav-cta" role="menuitem" aria-current="page">Sign Up Free</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
@@ -215,7 +244,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
-                <p>Developed by XtarzLab</p>
+                <p>Developed by <strong>Shayan</strong> (Muhammad Shayan Umar) of XtarzLab</p>
             </div>
         </div>
     </footer>

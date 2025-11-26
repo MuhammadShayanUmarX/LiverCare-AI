@@ -20,14 +20,31 @@ const Dashboard = {
     },
 
     checkAuth() {
-        const userStr = sessionStorage.getItem('currentUser');
+        const userStr = localStorage.getItem('currentUser');
+        console.log('Checking auth, localStorage currentUser:', userStr ? 'exists' : 'not found');
         if (!userStr) {
             window.location.href = 'login.html';
             return;
         }
 
-        this.currentUser = JSON.parse(userStr);
-        this.updateWelcomeMessage();
+        try {
+            this.currentUser = JSON.parse(userStr);
+            // Validate that user object has required fields
+            if (!this.currentUser || !this.currentUser.id || !this.currentUser.email) {
+                // Invalid user data, clear it and redirect to login
+                console.log('Invalid user data, clearing localStorage');
+                localStorage.removeItem('currentUser');
+                window.location.href = 'login.html';
+                return;
+            }
+            console.log('User authenticated:', this.currentUser.email);
+            this.updateWelcomeMessage();
+        } catch (error) {
+            // Invalid JSON, clear it and redirect to login
+            console.error('Error parsing user data:', error);
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
     },
 
     updateWelcomeMessage() {
@@ -123,6 +140,12 @@ const Dashboard = {
 
             const riskInfo = window.Detection.getRiskLevel(probability);
             const recommendations = window.Detection.getRecommendations(probability, data);
+
+            // Store data for PDF generation
+            window.Detection.currentDetectionData = data;
+            window.Detection.currentProbability = probability;
+            window.Detection.currentRiskLevel = riskInfo;
+            window.Detection.currentRecommendations = recommendations;
 
             // Save to history (if logged in)
             this.saveDetectionHistory(data, probability, riskInfo.level);
@@ -537,7 +560,7 @@ const Dashboard = {
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                sessionStorage.removeItem('currentUser');
+                localStorage.removeItem('currentUser');
                 window.location.href = 'login.html';
             });
         }

@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detection - Liver Disease Detection</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Liver Disease Detection - AI Risk Assessment | LiverCare AI</title>
+    <meta name="title" content="Liver Disease Detection - AI Risk Assessment | LiverCare AI">
+    <meta name="description" content="Get instant liver disease risk assessment. Enter your health information for AI-powered analysis with 97.9% accuracy. Free, secure, and confidential.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance & Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         // Redirect to login if not authenticated
         window.addEventListener('DOMContentLoaded', function() {
-            const currentUser = sessionStorage.getItem('currentUser');
+            const currentUser = localStorage.getItem('currentUser');
             if (!currentUser) {
                 window.location.href = 'login.html';
             }
@@ -16,25 +35,29 @@
     </script>
 </head>
 <body>
+    <!-- Skip to Content Link - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="detection.html" class="active">Detection</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="chatbot.html">AI Chatbot</a></li>
-                <li><a href="login.html">Login</a></li>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="detection.html" class="active" role="menuitem" aria-current="page">Detection</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="chatbot.html" role="menuitem">AI Chatbot</a></li>
+                <li role="none"><a href="developer.html" role="menuitem">Developer</a></li>
+                <li role="none"><a href="login.html" role="menuitem">Login</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
@@ -47,12 +70,12 @@
     </section>
 
     <!-- Detection Form -->
-    <section class="detection-section">
+    <section class="detection-section" id="main-content">
         <div class="container">
             <div class="detection-wrapper">
                 <div class="form-container">
                     <h2>Patient Information</h2>
-                    <form id="detectionForm" class="detection-form">
+                    <form id="detectionForm" class="detection-form" aria-label="Liver disease detection form" novalidate>
                         <div class="form-group">
                             <label for="age">Age <span class="required">*</span></label>
                             <input type="number" id="age" name="age" min="1" max="120" required>
@@ -196,7 +219,12 @@
                         <h3>Recommendations</h3>
                         <ul id="recommendationsList"></ul>
                     </div>
-                    <button class="btn btn-secondary" onclick="resetForm()">New Analysis</button>
+                    <div class="results-actions">
+                        <button class="btn btn-primary" id="downloadPdfBtn" onclick="window.Detection.downloadPDF()">
+                            📄 Download PDF Report
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetForm()">New Analysis</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -230,7 +258,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
-                <p>Developed by XtarzLab</p>
+                <p>Developed by <strong>Shayan</strong> (Muhammad Shayan Umar) of XtarzLab</p>
             </div>
         </div>
     </footer>

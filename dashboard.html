@@ -3,29 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - LiverCare AI</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Dashboard - LiverCare AI | Your Health Dashboard</title>
+    <meta name="title" content="Dashboard - LiverCare AI | Your Health Dashboard">
+    <meta name="description" content="Access your liver health history, detection results, and personalized recommendations on your LiverCare AI dashboard.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance & Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
+    <!-- Skip to Content Link - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
                 <p class="nav-tagline">Your Health Dashboard</p>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="dashboard.html" class="active">Dashboard</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="#" id="logoutBtn" class="logout-link">Logout</a></li>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="dashboard.html" class="active" role="menuitem" aria-current="page">Dashboard</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="developer.html" role="menuitem">Developer</a></li>
+                <li role="none"><a href="#" id="logoutBtn" class="logout-link" role="menuitem" aria-label="Logout from your account">Logout</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
@@ -282,6 +305,11 @@
                                             <h4>💡 Recommendations</h4>
                                             <ul id="dashboardRecommendations" class="recommendations-list"></ul>
                                         </div>
+                                        <div class="results-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                                            <button class="btn btn-primary" id="dashboardDownloadPdfBtn" onclick="window.Detection.downloadPDF()">
+                                                📄 Download PDF Report
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -402,7 +430,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
-                <p>Developed by XtarzLab</p>
+                <p>Developed by <strong>Shayan</strong> (Muhammad Shayan Umar) of XtarzLab</p>
             </div>
         </div>
     </footer>

@@ -34,4 +34,5 @@ dist/
 build/
 
 # Model files (if too large, consider Git LFS)
+# Uncomment below if model file is too large for git
 # liver_disease_model.joblib

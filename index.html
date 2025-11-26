@@ -3,102 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liver Disease Detection - Home</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>LiverCare AI - Advanced Liver Disease Detection | AI-Powered Health Monitoring</title>
+    <meta name="title" content="LiverCare AI - Advanced Liver Disease Detection | AI-Powered Health Monitoring">
+    <meta name="description" content="Early detection saves lives. Get instant, accurate liver disease risk assessment with 97.9% accuracy using advanced AI and machine learning ensemble models. Free health monitoring tool.">
+    <meta name="keywords" content="liver disease detection, AI health monitoring, liver health, medical AI, health assessment, liver disease screening, machine learning health">
+    <meta name="author" content="LiverCare AI">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://livercare-ai.com/">
+    <meta property="og:title" content="LiverCare AI - Advanced Liver Disease Detection">
+    <meta property="og:description" content="Early detection saves lives. Get instant, accurate liver disease risk assessment with 97.9% accuracy using advanced AI.">
+    <meta property="og:image" content="https://livercare-ai.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://livercare-ai.com/">
+    <meta property="twitter:title" content="LiverCare AI - Advanced Liver Disease Detection">
+    <meta property="twitter:description" content="Early detection saves lives. Get instant, accurate liver disease risk assessment with 97.9% accuracy using advanced AI.">
+    <meta property="twitter:image" content="https://livercare-ai.com/images/twitter-image.jpg">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance & Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "LiverCare AI - Liver Disease Detection",
+        "description": "Advanced AI-powered liver disease detection using machine learning ensemble models with 97.9% accuracy",
+        "url": "https://livercare-ai.com",
+        "mainEntity": {
+            "@type": "MedicalCondition",
+            "name": "Liver Disease",
+            "description": "Early detection and risk assessment for liver disease using artificial intelligence"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "LiverCare AI",
+            "url": "https://livercare-ai.com"
+        },
+        "medicalAudience": {
+            "@type": "Patient"
+        }
+    }
+    </script>
+    
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
+    <!-- Skip to Content Link - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-brand">
                 <h1>LiverCare AI</h1>
                 <p class="nav-tagline">AI-Powered Liver Health Monitoring</p>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="login.html">Login</a></li>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" class="active" role="menuitem" aria-current="page">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="developer.html" role="menuitem">Developer</a></li>
+                <li role="none"><a href="login.html" role="menuitem">Login</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Early Detection Saves Lives</h1>
                 <p class="hero-subtitle">Advanced AI-powered liver disease detection using machine learning ensemble models</p>
                 <div class="hero-buttons">
-                    <a href="login.html" class="btn btn-primary btn-pulse">Get Started</a>
-                    <a href="about.html" class="btn btn-secondary">Learn More</a>
+                    <a href="login.html" class="btn btn-primary btn-pulse" aria-label="Get started with liver disease detection">Get Started</a>
+                    <a href="about.html" class="btn btn-secondary" aria-label="Learn more about LiverCare AI">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" aria-labelledby="features-heading">
         <div class="container">
-            <h2 class="section-title">Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card scroll-reveal hover-lift">
-                    <div class="feature-icon">🤖</div>
+            <h2 class="section-title" id="features-heading">Key Features</h2>
+            <div class="features-grid" role="list">
+                <article class="feature-card scroll-reveal hover-lift" role="listitem">
+                    <div class="feature-icon" aria-hidden="true">🤖</div>
                     <h3>AI-Powered Detection</h3>
                     <p>Utilizing advanced ensemble machine learning models including Random Forest, XGBoost, and Neural Networks for accurate predictions.</p>
-                </div>
-                <div class="feature-card scroll-reveal hover-lift">
-                    <div class="feature-icon">⚡</div>
+                </article>
+                <article class="feature-card scroll-reveal hover-lift" role="listitem">
+                    <div class="feature-icon" aria-hidden="true">⚡</div>
                     <h3>Fast & Accurate</h3>
                     <p>Get instant results with 97.9% accuracy using our Voting Classifier ensemble model combining MLP and Random Forest.</p>
-                </div>
-                <div class="feature-card scroll-reveal hover-lift">
-                    <div class="feature-icon">💬</div>
+                </article>
+                <article class="feature-card scroll-reveal hover-lift" role="listitem">
+                    <div class="feature-icon" aria-hidden="true">💬</div>
                     <h3>AI Chatbot Support</h3>
                     <p>Get answers to your questions about liver disease, symptoms, prevention, and more through our intelligent chatbot.</p>
-                </div>
-                <div class="feature-card scroll-reveal hover-lift">
-                    <div class="feature-icon">📊</div>
+                </article>
+                <article class="feature-card scroll-reveal hover-lift" role="listitem">
+                    <div class="feature-icon" aria-hidden="true">📊</div>
                     <h3>Comprehensive Analysis</h3>
                     <p>Detailed risk assessment based on multiple factors including lifestyle, medical history, and lab results.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Statistics Section -->
-    <section class="statistics">
+    <section class="statistics" aria-labelledby="stats-heading">
         <div class="container">
-            <h2 class="section-title">Model Performance</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">97.9%</div>
+            <h2 class="section-title" id="stats-heading">Model Performance</h2>
+            <div class="stats-grid" role="list">
+                <div class="stat-card" role="listitem">
+                    <div class="stat-number" aria-label="97.9 percent">97.9%</div>
                     <div class="stat-label">Accuracy</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">98.0%</div>
+                <div class="stat-card" role="listitem">
+                    <div class="stat-number" aria-label="98.0 percent">98.0%</div>
                     <div class="stat-label">Precision</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">97.8%</div>
+                <div class="stat-card" role="listitem">
+                    <div class="stat-number" aria-label="97.8 percent">97.8%</div>
                     <div class="stat-label">Recall</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">99.5%</div>
+                <div class="stat-card" role="listitem">
+                    <div class="stat-number" aria-label="99.5 percent">99.5%</div>
                     <div class="stat-label">ROC-AUC</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">5,000</div>
+                <div class="stat-card" role="listitem">
+                    <div class="stat-number" aria-label="5,000 training samples">5,000</div>
                     <div class="stat-label">Training Samples</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">9</div>
+                <div class="stat-card" role="listitem">
+                    <div class="stat-number" aria-label="9 machine learning models">9</div>
                     <div class="stat-label">ML Models</div>
                 </div>
             </div>
@@ -234,34 +295,6 @@
         </div>
     </section>
 
-    <!-- Developer Highlight -->
-    <section class="developer-highlight scroll-reveal">
-        <div class="container">
-            <div class="developer-highlight-grid">
-                <div class="developer-highlight-copy">
-                    <p class="badge-pill">Meet the Visionary</p>
-                    <h2>Crafted with care by Muhammad Shayan Umar</h2>
-                    <p>Founder &amp; CEO of XtarzLab, bringing 5+ years of hands-on AI expertise to deliver enterprise-grade healthcare solutions that feel personal, transparent, and actionable.</p>
-                    <ul>
-                        <li>Leading AI developer specializing in medical automation</li>
-                        <li>Scaled XtarzLab from startup to global AI consultancy</li>
-                        <li>Focused on evidence-backed, patient-first innovation</li>
-                    </ul>
-                    <div class="developer-cta">
-                        <a href="developer.html" class="btn btn-secondary">Explore Developer Profile</a>
-                        <a href="https://www.linkedin.com/in/muhammad-shayan-umar/" target="_blank" rel="noopener" class="link-inline">LinkedIn ↗</a>
-                    </div>
-                </div>
-                <div class="developer-highlight-card">
-                    <span class="quote-icon">“</span>
-                    <p class="quote-body">“AI should feel like a trusted partner—empowering clinicians and patients with clarity, not complexity.”</p>
-                    <p class="quote-name">Muhammad Shayan Umar</p>
-                    <p class="quote-role">Founder &amp; CEO, XtarzLab</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
     <section class="faq-section bg-light">
         <div class="container">
@@ -317,14 +350,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>LiverCare AI</h3>
                     <p>Advanced liver disease detection using machine learning.</p>
                 </div>
-                <div class="footer-section">
+                <nav class="footer-section" aria-label="Footer navigation">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -332,7 +365,7 @@
                         <li><a href="chatbot.html">AI Chatbot</a></li>
                         <li><a href="developer.html">Developer</a></li>
                     </ul>
-                </div>
+                </nav>
                 <div class="footer-section">
                     <h4>Disclaimer</h4>
                     <p>This tool is for informational purposes only and should not replace professional medical advice.</p>
@@ -340,7 +373,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 LiverCare AI. All rights reserved.</p>
-                <p>Developed by XtarzLab</p>
+                <p>Developed by <strong>Shayan</strong> (Muhammad Shayan Umar) of XtarzLab</p>
             </div>
         </div>
     </footer>
